@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content">
+
+  <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/shortcut_info"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/about_shortcut_info"
+            />
+            
+  <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/shortcut_up_key"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/about_shortcut_up"
+            />
+
+  <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/shortcut_down_key"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/about_shortcut__down"
+            />
+            
+  <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/shortcut_center_key"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/about_shortcut_center"
+            />
+
+  <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/about_contact_author"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/about_contact_author"
+            android:paddingTop="5dp"
+            />
+            
+  <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/about_msg_by_author"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:autoLink="all"
+            android:text="@string/about_msg_by_author"
+            />            
+</LinearLayout>
