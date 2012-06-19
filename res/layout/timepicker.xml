@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- timepicker.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:orientation="vertical">
-	<TimePicker android:id="@+id/timePicker1"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"></TimePicker>
-	<Button android:id="@+id/btn_settime" android:layout_height="wrap_content"
-		android:text="Set Time" android:layout_width="wrap_content"></Button>
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TimePicker
+        android:id="@+id/timePicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    </TimePicker>
+
+    <Button
+        android:id="@+id/btn_settime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Time" >
+    </Button>
+
 </LinearLayout>

@@ -24,8 +24,7 @@ import android.preference.PreferenceActivity;
  * Preference the onPreferenceClick() will be called.
  */
 public class SettingsActivity extends PreferenceActivity implements
-		OnPreferenceClickListener, ColorPickerDialog.OnColorChangedListener
-{
+		OnPreferenceClickListener, ColorPickerDialog.OnColorChangedListener {
 	SharedPreferences prefs = null;
 	Preference pen_width = null;
 	Preference pen_color = null;
@@ -38,8 +37,7 @@ public class SettingsActivity extends PreferenceActivity implements
 	Preference lastBuildTime;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		/**
@@ -71,11 +69,9 @@ public class SettingsActivity extends PreferenceActivity implements
 
 	}
 
-	private String getLastBuiltTime()
-	{
+	private String getLastBuiltTime() {
 		String lastBuiltTimeString = "Unknown";
-		try
-		{
+		try {
 			ApplicationInfo ai = getPackageManager().getApplicationInfo(
 					getPackageName(), 0);
 			ZipFile zf = new ZipFile(ai.sourceDir);
@@ -84,25 +80,19 @@ public class SettingsActivity extends PreferenceActivity implements
 			lastBuiltTimeString = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 					.format(new java.util.Date(time));
 
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			// Just leave the last built time to be "unknown"
 		}
-		
+
 		return lastBuiltTimeString;
 	}
 
-	private String getVersionName()
-	{
+	private String getVersionName() {
 		String versionName = "Unknown";
-		try
-		{
+		try {
 			versionName = this.getPackageManager().getPackageInfo(
 					getPackageName(), 0).versionName;
-		}
-		catch (NameNotFoundException e)
-		{
+		} catch (NameNotFoundException e) {
 			// Just leave the versionName to be "Unknown"
 		}
 		return versionName;
@@ -111,16 +101,12 @@ public class SettingsActivity extends PreferenceActivity implements
 	/**
 	 * Handle the event that the preference is clicked.
 	 */
-	public boolean onPreferenceClick(Preference preference)
-	{
-		if (preference.getKey().equals(pen_color_key))
-		{
+	public boolean onPreferenceClick(Preference preference) {
+		if (preference.getKey().equals(pen_color_key)) {
 			String str = getResources().getString(R.string.tip_choose_color);
 			new ColorPickerDialog(this, this, Brush.getPen().getColor(), str)
 					.show();
-		}
-		else if (preference.getKey().equals(pen_width_key))
-		{
+		} else if (preference.getKey().equals(pen_width_key)) {
 			showSetBrushWidthDialog();
 		}
 		return true;
@@ -129,16 +115,13 @@ public class SettingsActivity extends PreferenceActivity implements
 	/**
 	 * Pop up a dialog with SeekBar to control the width of the brush.
 	 */
-	private void showSetBrushWidthDialog()
-	{
+	private void showSetBrushWidthDialog() {
 		SeekBarDialog seekBarDialog = new SeekBarDialog(this);
 		seekBarDialog.setTitle(Brush.getPen().getStrokeWidth() + " pixel");
 		seekBarDialog.setButton(
 				getResources().getString(R.string.alert_dialog_ok),
-				new DialogInterface.OnClickListener()
-				{
-					public void onClick(DialogInterface dialog, int whichButton)
-					{
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
 						dialog.dismiss();
 					}
 				});
@@ -148,8 +131,7 @@ public class SettingsActivity extends PreferenceActivity implements
 	/**
 	 * When brush's color is changed, this method will be called.
 	 */
-	public void colorChanged(int color)
-	{
+	public void colorChanged(int color) {
 		Brush pen = Brush.getPen();
 		pen.setColor(color);
 	}

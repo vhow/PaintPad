@@ -1,50 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-	<PreferenceCategory android:title="@string/pen_title"
-		android:key="@string/pen_key" android:summary="@string/pen_summary">
+    <PreferenceCategory
+        android:key="@string/pen_key"
+        android:summary="@string/pen_summary"
+        android:title="@string/pen_title" >
+        <Preference
+            android:key="@string/pen_width_key"
+            android:summary="@string/pen_width_summary"
+            android:title="@string/pen_width_title" >
+        </Preference>
+        <Preference
+            android:key="@string/pen_color_key"
+            android:summary="@string/pen_color_summary"
+            android:title="@string/pen_color_title" >
+        </Preference>
 
-		<Preference android:summary="@string/pen_width_summary"
-			android:title="@string/pen_width_title" android:key="@string/pen_width_key">
-		</Preference>
+        <CheckBoxPreference
+            android:defaultValue="@string/checkbox_default_false"
+            android:key="@string/pen_style_key"
+            android:summaryOff="@string/pen_style_summary_off"
+            android:summaryOn="@string/pen_style_summary_on"
+            android:title="@string/pen_style_title" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="@string/setting_screen_key"
+        android:summary="@string/setting_screen_summary"
+        android:title="@string/setting_screen_title" >
+        <CheckBoxPreference
+            android:defaultValue="@string/checkbox_default_false"
+            android:key="@string/check_full_screen_key"
+            android:summaryOff="@string/full_screen_off"
+            android:summaryOn="@string/full_screen_on"
+            android:title="@string/full_screen_title" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
 
-		<Preference android:summary="@string/pen_color_summary"
-			android:title="@string/pen_color_title" android:key="@string/pen_color_key">
-		</Preference>
+    <!-- 2011-10-01 [start] -->
+    <PreferenceCategory
+        android:key="@string/setting_about_key"
+        android:title="@string/setting_about_title" >
+        <Preference
+            style="?android:preferenceInformationStyle"
+            android:key="@string/setting_about_version_key"
+            android:title="@string/setting_about_version_title" >
+        </Preference>
+        <Preference
+            style="?android:preferenceInformationStyle"
+            android:key="@string/setting_about_build_key"
+            android:title="@string/setting_about_build_title" >
+        </Preference>
 
-		<CheckBoxPreference android:summaryOn="@string/pen_style_summary_on"
-			android:summaryOff="@string/pen_style_summary_off" android:title="@string/pen_style_title"
-			android:key="@string/pen_style_key" android:defaultValue="@string/checkbox_default_false">
-		</CheckBoxPreference>
-
-	</PreferenceCategory>
-
-	<PreferenceCategory android:key="@string/setting_screen_key"
-		android:title="@string/setting_screen_title" android:summary="@string/setting_screen_summary">
-
-		<CheckBoxPreference android:key="@string/check_full_screen_key"
-			android:summaryOff="@string/full_screen_off" android:defaultValue="@string/checkbox_default_false"
-			android:title="@string/full_screen_title" android:summaryOn="@string/full_screen_on">
-		</CheckBoxPreference>
-
-	</PreferenceCategory>
-	
-<!-- 2011-10-01 [start] -->
-	<PreferenceCategory android:key="@string/setting_about_key"
-		android:title="@string/setting_about_title">
-		<Preference android:key="@string/setting_about_version_key"
-			android:title="@string/setting_about_version_title" style="?android:preferenceInformationStyle">
-		</Preference>
-		<Preference android:key="@string/setting_about_build_key"
-			android:title="@string/setting_about_build_title" style="?android:preferenceInformationStyle">
-		</Preference>
-		<PreferenceScreen android:key="@string/setting_about_tutorial_key"
-			android:title="@string/setting_about_tutorial_title">
-			<intent android:action="android.intent.action.MAIN"
-				android:targetPackage="org.vhow.paintpad" android:targetClass="org.vhow.paintpad.About">
-			</intent>
-		</PreferenceScreen>
-	</PreferenceCategory>
-<!-- 2011-10-01 [end] -->
+        <PreferenceScreen
+            android:key="@string/setting_about_tutorial_key"
+            android:title="@string/setting_about_tutorial_title" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="org.vhow.paintpad.About"
+                android:targetPackage="org.vhow.paintpad" >
+            </intent>
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <!-- 2011-10-01 [end] -->
 
 </PreferenceScreen>

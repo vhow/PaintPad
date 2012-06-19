@@ -23,8 +23,7 @@ import android.widget.Toast;
 /**
  * This is our main View class.
  */
-public class PaintPad extends View
-{
+public class PaintPad extends View {
 	float tempX, tempY;
 	private Bitmap bitmap = null;
 	private Canvas paper = null;
@@ -40,13 +39,11 @@ public class PaintPad extends View
 	 * @param drawing
 	 *            Which shape to drawing current.
 	 */
-	public void setDrawing(Drawing drawing)
-	{
+	public void setDrawing(Drawing drawing) {
 		this.drawing = drawing;
 	}
 
-	public PaintPad(Context context)
-	{
+	public PaintPad(Context context) {
 		super(context);
 		this.context = context;
 		// Get the information about the screen.
@@ -67,21 +64,18 @@ public class PaintPad extends View
 	}
 
 	@Override
-	protected void onDraw(Canvas canvas)
-	{
+	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 
 		// Draw the bitmap
 		canvas.drawBitmap(bitmap, 0, 0, new Paint(Paint.DITHER_FLAG));
 
 		// Call the drawing's draw() method.
-		if (drawing != null && this.isMoving == true)
-		{
+		if (drawing != null && this.isMoving == true) {
 			drawing.draw(canvas);
 		}
 
-		if (!(drawing instanceof Eraser))
-		{
+		if (!(drawing instanceof Eraser)) {
 			// Drawing a brush icon in this view.
 			Bitmap pen = BitmapFactory.decodeResource(this.getResources(),
 					R.drawable.pen);
@@ -91,25 +85,23 @@ public class PaintPad extends View
 	}
 
 	@Override
-	public boolean onTouchEvent(MotionEvent event)
-	{
+	public boolean onTouchEvent(MotionEvent event) {
 		float x = event.getX();
 		float y = event.getY();
 
-		switch (event.getAction())
-		{
-			case MotionEvent.ACTION_DOWN:
-				fingerDown(x, y);
-				reDraw();
-				break;
-			case MotionEvent.ACTION_MOVE:
-				fingerMove(x, y);
-				reDraw();
-				break;
-			case MotionEvent.ACTION_UP:
-				fingerUp(x, y);
-				reDraw();
-				break;
+		switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+			fingerDown(x, y);
+			reDraw();
+			break;
+		case MotionEvent.ACTION_MOVE:
+			fingerMove(x, y);
+			reDraw();
+			break;
+		case MotionEvent.ACTION_UP:
+			fingerUp(x, y);
+			reDraw();
+			break;
 		}
 
 		return true;
@@ -118,8 +110,7 @@ public class PaintPad extends View
 	/**
 	 * Refresh the view, the view's onDraw() method will be called.
 	 */
-	private void reDraw()
-	{
+	private void reDraw() {
 		invalidate();
 	}
 
@@ -131,8 +122,7 @@ public class PaintPad extends View
 	 * @param y
 	 *            coordinate
 	 */
-	private void fingerUp(float x, float y)
-	{
+	private void fingerUp(float x, float y) {
 		this.tempX = 0;
 		this.tempY = 0;
 
@@ -148,8 +138,7 @@ public class PaintPad extends View
 	 * @param y
 	 *            coordinate
 	 */
-	private void fingerMove(float x, float y)
-	{
+	private void fingerMove(float x, float y) {
 		this.tempX = x;
 		this.tempY = y;
 		this.isMoving = true;
@@ -165,8 +154,7 @@ public class PaintPad extends View
 	 * @param y
 	 *            coordinate
 	 */
-	private void fingerDown(float x, float y)
-	{
+	private void fingerDown(float x, float y) {
 		this.isMoving = false;
 		drawing.fingerDown(x, y, paper);
 	}
@@ -174,22 +162,16 @@ public class PaintPad extends View
 	/**
 	 * Check the sdcard is available or not.
 	 */
-	public void saveBitmap()
-	{
+	public void saveBitmap() {
 		String state = Environment.getExternalStorageState();
 
-		if (Environment.MEDIA_MOUNTED.equals(state))
-		{
+		if (Environment.MEDIA_MOUNTED.equals(state)) {
 			saveToSdcard();
-		}
-		else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state))
-		{
+		} else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
 			Toast.makeText(this.context,
 					getResources().getString(R.string.tip_sdcard_is_read_only),
 					Toast.LENGTH_LONG).show();
-		}
-		else
-		{
+		} else {
 			Toast.makeText(
 					this.context,
 					getResources().getString(
@@ -198,8 +180,7 @@ public class PaintPad extends View
 		}
 	}
 
-	public void changeBgColor(int color)
-	{
+	public void changeBgColor(int color) {
 		this.paper.drawColor(color);
 		this.reDraw();
 	}
@@ -207,8 +188,7 @@ public class PaintPad extends View
 	/**
 	 * Clear the drawing in the canvas.
 	 */
-	public void clearCanvas()
-	{
+	public void clearCanvas() {
 		this.paper.drawColor(getResources().getColor(R.color.color_default_bg));
 		this.reDraw();
 	}
@@ -216,21 +196,16 @@ public class PaintPad extends View
 	/**
 	 * Save the bitmap to sdcard.
 	 */
-	private void saveToSdcard()
-	{
+	private void saveToSdcard() {
 		File sdcard_path = Environment.getExternalStorageDirectory();
 		String myFloder = getResources().getString(
 				R.string.folder_name_in_sdcard);
 		File paintpad = new File(sdcard_path + "/" + myFloder + "/");
-		try
-		{
-			if (!paintpad.exists())
-			{
+		try {
+			if (!paintpad.exists()) {
 				paintpad.mkdirs();
 			}
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
@@ -240,16 +215,13 @@ public class PaintPad extends View
 
 		String fullPath = "";
 		fullPath = sdcard_path + "/" + myFloder + "/" + timeStamp + suffixName;
-		try
-		{
+		try {
 			Toast.makeText(this.context,
 					getResources().getString(R.string.tip_save_to) + fullPath,
 					Toast.LENGTH_LONG).show();
 			bitmap.compress(Bitmap.CompressFormat.PNG, 100,
 					new FileOutputStream(fullPath));
-		}
-		catch (FileNotFoundException e)
-		{
+		} catch (FileNotFoundException e) {
 			Toast.makeText(
 					this.context,
 					getResources().getString(R.string.tip_sava_failed)

@@ -3,8 +3,7 @@ package org.vhow.paintpad.drawings;
 /**
  * Defines the IDs of the drawings.
  */
-public class DrawingId
-{
+public class DrawingId {
 	public static final int DRAWING_PATHLINE = 0;
 	public static final int DRAWING_STRAIGHTLINE = 1;
 	public static final int DRAWING_RECT = 2;

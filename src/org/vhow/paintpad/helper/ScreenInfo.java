@@ -6,8 +6,7 @@ import android.util.DisplayMetrics;
 /**
  * ScreenInfo.java Use this class to get the information of the screen.
  */
-public class ScreenInfo
-{
+public class ScreenInfo {
 	Activity activity;
 
 	int widthPixels;
@@ -17,14 +16,12 @@ public class ScreenInfo
 	 * @param activity
 	 *            an instance of PaintPadActivity
 	 */
-	public ScreenInfo(Activity activity)
-	{
+	public ScreenInfo(Activity activity) {
 		this.activity = activity;
 		getDisplayMetrics();
 	}
 
-	private void getDisplayMetrics()
-	{
+	private void getDisplayMetrics() {
 		DisplayMetrics dm = new DisplayMetrics();
 
 		activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -35,16 +32,14 @@ public class ScreenInfo
 	/**
 	 * @return the number of pixel in the width of the screen.
 	 */
-	public int getWidthPixels()
-	{
+	public int getWidthPixels() {
 		return widthPixels;
 	}
 
 	/**
 	 * @return the number of pixel in the height of the screen.
 	 */
-	public int getHeightPixels()
-	{
+	public int getHeightPixels() {
 		return heightPixels;
 	}
 }

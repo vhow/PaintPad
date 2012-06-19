@@ -29,8 +29,7 @@ import android.widget.Toast;
  * The main Activity of the application.
  */
 public class PaintPadActivity extends Activity implements
-		OnSharedPreferenceChangeListener
-{
+		OnSharedPreferenceChangeListener {
 	PaintPad paintPad;
 	Context context = null;
 	Drawing drawing = null;
@@ -47,8 +46,7 @@ public class PaintPadActivity extends Activity implements
 	SharedPreferences prefs = null;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState)
-	{
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		paintPad = new PaintPad(this);
@@ -66,23 +64,20 @@ public class PaintPadActivity extends Activity implements
 
 		fullScreen = prefs.getBoolean("check_full_screen", false);
 
-		if (fullScreen)
-		{
+		if (fullScreen) {
 			makeFullScreen();
 		}
 	}
 
 	@Override
-	protected void onStart()
-	{
+	protected void onStart() {
 		super.onStart();
 		Toast.makeText(this,
 				getResources().getString(R.string.tip_touch_to_draw),
 				Toast.LENGTH_SHORT).show();
 	}
 
-	private void makeFullScreen()
-	{
+	private void makeFullScreen() {
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 	}
@@ -90,8 +85,7 @@ public class PaintPadActivity extends Activity implements
 	/**
 	 * Set the default drawing
 	 */
-	private void setDefaultDrawing()
-	{
+	private void setDefaultDrawing() {
 		factory = new DrawingFactory();
 		drawing = factory.createDrawing(DrawingId.DRAWING_PATHLINE);
 		paintPad.setDrawing(drawing);
@@ -102,22 +96,20 @@ public class PaintPadActivity extends Activity implements
 	 * shapes.
 	 */
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event)
-	{
-		switch (keyCode)
-		{
-			case KeyEvent.KEYCODE_DPAD_UP:
-				showDialog(PaintPadActivity.DIALOG_WHAT_TO_DRAW);
-				return true;
-			case KeyEvent.KEYCODE_BACK:
-				this.finish();
-				return true;
-			case KeyEvent.KEYCODE_DPAD_CENTER:
-				paintPad.saveBitmap();
-				return true;
-			case KeyEvent.KEYCODE_DPAD_DOWN:
-				paintPad.clearCanvas();
-				return true;
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		switch (keyCode) {
+		case KeyEvent.KEYCODE_DPAD_UP:
+			showDialog(PaintPadActivity.DIALOG_WHAT_TO_DRAW);
+			return true;
+		case KeyEvent.KEYCODE_BACK:
+			this.finish();
+			return true;
+		case KeyEvent.KEYCODE_DPAD_CENTER:
+			paintPad.saveBitmap();
+			return true;
+		case KeyEvent.KEYCODE_DPAD_DOWN:
+			paintPad.clearCanvas();
+			return true;
 		}
 		return false;
 	}
@@ -125,8 +117,7 @@ public class PaintPadActivity extends Activity implements
 	/**
 	 * @return A dialog contents all the shapes available.
 	 */
-	private Dialog showWhatToDrawDialog()
-	{
+	private Dialog showWhatToDrawDialog() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(
 				PaintPadActivity.this);
 
@@ -134,20 +125,16 @@ public class PaintPadActivity extends Activity implements
 				R.string.dialog_title_what_to_draw));
 
 		builder.setSingleChoiceItems(R.array.drawings, 0,
-				new DialogInterface.OnClickListener()
-				{
-					public void onClick(DialogInterface dialog, int which)
-					{
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
 						setWhatToDraw(which);
 						dialog.dismiss();
 					}
 				});
 
 		builder.setNegativeButton(R.string.alert_dialog_cancel,
-				new DialogInterface.OnClickListener()
-				{
-					public void onClick(DialogInterface dialog, int whichButton)
-					{
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
 						dialog.dismiss();
 					}
 				});
@@ -157,19 +144,16 @@ public class PaintPadActivity extends Activity implements
 	}
 
 	@Override
-	protected Dialog onCreateDialog(int id)
-	{
-		switch (id)
-		{
-			case PaintPadActivity.DIALOG_WHAT_TO_DRAW:
-				return showWhatToDrawDialog();
+	protected Dialog onCreateDialog(int id) {
+		switch (id) {
+		case PaintPadActivity.DIALOG_WHAT_TO_DRAW:
+			return showWhatToDrawDialog();
 		}
 		return super.onCreateDialog(id);
 	}
 
 	@Override
-	protected void onDestroy()
-	{
+	protected void onDestroy() {
 		SharedPreferences.Editor editor = prefs.edit();
 		editor.putBoolean("pen_style_key", false);
 		editor.commit();
@@ -183,8 +167,7 @@ public class PaintPadActivity extends Activity implements
 	 * @param which
 	 *            The drawing's id, identify the current drawing.
 	 */
-	private void setWhatToDraw(int which)
-	{
+	private void setWhatToDraw(int which) {
 		String[] items = getResources().getStringArray(R.array.drawings);
 
 		Toast.makeText(
@@ -194,52 +177,46 @@ public class PaintPadActivity extends Activity implements
 
 		drawing = factory.createDrawing(which);
 
-		if (drawing != null)
-		{
+		if (drawing != null) {
 			paintPad.setDrawing(drawing);
 		}
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
+	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = this.getMenuInflater();
 		inflater.inflate(R.menu.menu_paintpadactivity, menu);
 		return true;
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		switch (item.getItemId())
-		{
-			case R.id.menu_id_what_to_draw:
-				showDialog(PaintPadActivity.DIALOG_WHAT_TO_DRAW);
-				break;
-			case R.id.menu_id_setting:
-				startSettingsActivity();
-				break;
-			case R.id.menu_id_save:
-				paintPad.saveBitmap();
-				break;
-			case R.id.menu_id_clear_screen:
-				paintPad.clearCanvas();
-				break;
-			default:
-				break;
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_id_what_to_draw:
+			showDialog(PaintPadActivity.DIALOG_WHAT_TO_DRAW);
+			break;
+		case R.id.menu_id_setting:
+			startSettingsActivity();
+			break;
+		case R.id.menu_id_save:
+			paintPad.saveBitmap();
+			break;
+		case R.id.menu_id_clear_screen:
+			paintPad.clearCanvas();
+			break;
+		default:
+			break;
 		}
 		return true;
 	}
 
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data)
-	{
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		switch (requestCode)
-		{
-			case REQUEST_SETTING:
-				System.out.println("result");
-				break;
+		switch (requestCode) {
+		case REQUEST_SETTING:
+			System.out.println("result");
+			break;
 		}
 	}
 
@@ -247,22 +224,17 @@ public class PaintPadActivity extends Activity implements
 	 * To start the setting Activity, the provide some functions to setting the
 	 * brush.
 	 */
-	private void startSettingsActivity()
-	{
+	private void startSettingsActivity() {
 		Intent intent = new Intent();
 		intent.setClass(this.context, SettingsActivity.class);
 		startActivityForResult(intent, PaintPadActivity.REQUEST_SETTING);
 	}
 
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
-			String key)
-	{
-		if (key.equals("pen_style_key"))
-		{
+			String key) {
+		if (key.equals("pen_style_key")) {
 			setPenStyle(sharedPreferences.getBoolean("pen_style_key", false));
-		}
-		else if (key.equals("pen_antialias_key"))
-		{
+		} else if (key.equals("pen_antialias_key")) {
 			Brush.getPen().setAntiAlias(
 					sharedPreferences.getBoolean(key, false));
 		}
@@ -274,14 +246,10 @@ public class PaintPadActivity extends Activity implements
 	 * @param flag
 	 *            Fill the shapes or not
 	 */
-	public void setPenStyle(boolean flag)
-	{
-		if (flag)
-		{
+	public void setPenStyle(boolean flag) {
+		if (flag) {
 			Brush.getPen().setStyle(Style.FILL);
-		}
-		else
-		{
+		} else {
 			Brush.getPen().setStyle(Style.STROKE);
 		}
 	}
