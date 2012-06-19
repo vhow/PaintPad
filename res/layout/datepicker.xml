@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- datepicker.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:orientation="vertical">
-	<DatePicker android:id="@+id/datePicker1"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"></DatePicker>
-	<Button android:text="Set Date" android:id="@+id/btn_setdate"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
-	<Button android:text="Go To TimerPickerActivity" android:id="@+id/btn_gototimepicker"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <DatePicker
+        android:id="@+id/datePicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    </DatePicker>
+
+    <Button
+        android:id="@+id/btn_setdate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Date" >
+    </Button>
+
+    <Button
+        android:id="@+id/btn_gototimepicker"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Go To TimerPickerActivity" >
+    </Button>
+
 </LinearLayout>

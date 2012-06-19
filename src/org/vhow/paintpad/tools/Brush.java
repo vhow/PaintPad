@@ -5,8 +5,7 @@ import android.graphics.Paint;
 /**
  * Use Singleton mode to create Brush class
  */
-public class Brush extends Paint
-{
+public class Brush extends Paint {
 	/**
 	 * Generate the instance when the class is loaded
 	 */
@@ -16,8 +15,7 @@ public class Brush extends Paint
 	 * Make the constructor private, to stop others to create instance by the
 	 * default constructor
 	 */
-	private Brush()
-	{
+	private Brush() {
 	}
 
 	/**
@@ -25,16 +23,14 @@ public class Brush extends Paint
 	 * 
 	 * @return the single instance
 	 */
-	public static Brush getPen()
-	{
+	public static Brush getPen() {
 		return brush;
 	}
 
 	/**
 	 * reset the brush
 	 */
-	public void reset()
-	{
+	public void reset() {
 		brush.setAntiAlias(true);
 		brush.setDither(true);
 		brush.setColor(0xFF000000);
