@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 
 /**
- * Just display some information about this application.
+ * Display some information about this application.
  */
 public class About extends Activity {
 	@Override
@@ -18,7 +18,7 @@ public class About extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		switch (keyCode) {
 		case KeyEvent.KEYCODE_BACK:
-			this.finish();
+			About.this.finish();
 			break;
 		}
 		return super.onKeyDown(keyCode, event);
