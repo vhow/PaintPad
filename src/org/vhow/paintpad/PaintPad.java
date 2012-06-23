@@ -3,6 +3,9 @@ package org.vhow.paintpad;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.vhow.paintpad.drawings.Drawing;
 import org.vhow.paintpad.drawings.Eraser;
@@ -209,8 +212,15 @@ public class PaintPad extends View {
 			e.printStackTrace();
 		}
 
-		String timeStamp = (DateFormat.format("yyyy.MM.dd.hh.mm.ss",
-				new java.util.Date())).toString();
+		// Set format
+		SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd_HH.mm.ss");
+
+		// Get date
+		Date date = Calendar.getInstance().getTime();
+
+		// Get formatted time stamp
+		String timeStamp = format.format(date);
+		
 		String suffixName = ".png";
 
 		String fullPath = "";
