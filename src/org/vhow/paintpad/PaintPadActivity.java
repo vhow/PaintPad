@@ -30,7 +30,7 @@ import android.widget.Toast;
  */
 public class PaintPadActivity extends Activity implements
 		OnSharedPreferenceChangeListener {
-	PaintPad paintPad;
+	PaintPad mPaintPad;
 	Context context = null;
 	Drawing drawing = null;
 	Paint pen = null;
@@ -49,9 +49,9 @@ public class PaintPadActivity extends Activity implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		paintPad = new PaintPad(this);
+		mPaintPad = new PaintPad(this);
 		this.context = this;
-		setContentView(paintPad);
+		setContentView(mPaintPad);
 
 		setDefaultDrawing();
 
@@ -88,7 +88,7 @@ public class PaintPadActivity extends Activity implements
 	private void setDefaultDrawing() {
 		factory = new DrawingFactory();
 		drawing = factory.createDrawing(DrawingId.DRAWING_PATHLINE);
-		paintPad.setDrawing(drawing);
+		mPaintPad.setDrawing(drawing);
 	}
 
 	/**
@@ -102,13 +102,11 @@ public class PaintPadActivity extends Activity implements
 			showDialog(PaintPadActivity.DIALOG_WHAT_TO_DRAW);
 			return true;
 		case KeyEvent.KEYCODE_BACK:
-			this.finish();
-			return true;
 		case KeyEvent.KEYCODE_DPAD_CENTER:
-			paintPad.saveBitmap();
+			mPaintPad.saveBitmap();
 			return true;
 		case KeyEvent.KEYCODE_DPAD_DOWN:
-			paintPad.clearCanvas();
+			mPaintPad.clearCanvas();
 			return true;
 		}
 		return false;
@@ -178,7 +176,7 @@ public class PaintPadActivity extends Activity implements
 		drawing = factory.createDrawing(which);
 
 		if (drawing != null) {
-			paintPad.setDrawing(drawing);
+			mPaintPad.setDrawing(drawing);
 		}
 	}
 
@@ -199,10 +197,10 @@ public class PaintPadActivity extends Activity implements
 			startSettingsActivity();
 			break;
 		case R.id.menu_id_save:
-			paintPad.saveBitmap();
+			mPaintPad.saveBitmap();
 			break;
 		case R.id.menu_id_clear_screen:
-			paintPad.clearCanvas();
+			mPaintPad.clearCanvas();
 			break;
 		default:
 			break;
