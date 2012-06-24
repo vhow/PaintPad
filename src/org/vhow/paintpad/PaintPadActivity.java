@@ -104,6 +104,7 @@ public class PaintPadActivity extends Activity implements
 		case KeyEvent.KEYCODE_BACK:
 		case KeyEvent.KEYCODE_DPAD_CENTER:
 			mPaintPad.saveBitmap();
+			this.finish();
 			return true;
 		case KeyEvent.KEYCODE_DPAD_DOWN:
 			mPaintPad.clearCanvas();
