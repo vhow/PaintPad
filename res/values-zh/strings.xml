@@ -7,6 +7,8 @@
 	<string name="dialog_input_text">请输入文字</string>
 	<string name="alert_dialog_ok">确定</string>
 	<string name="alert_dialog_cancel">取消</string>
+	<string name="tip_press_again_to_save_bitmap_before_leaving">正在退出... 再按一次，以保存图片</string>
+	
 
 	<!-- about start -->
 	<string name="about_shortcut_info">
