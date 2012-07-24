@@ -17,6 +17,8 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -30,12 +32,16 @@ import android.widget.Toast;
  */
 public class PaintPadActivity extends Activity implements
 		OnSharedPreferenceChangeListener {
-	PaintPad mPaintPad;
-	Context context = null;
-	Drawing drawing = null;
-	Paint pen = null;
-	DrawingFactory factory = null;
-	boolean fullScreen;
+
+	private static final String TAG = "PaintPadActivity";
+	private static final boolean DEBUG = false;
+
+	private PaintPad mPaintPad;
+	private Context mContext;
+	private Drawing mDrawing;
+	private Paint pen;
+	private DrawingFactory mDrawingFactory;
+	private boolean isFullScreen;
 
 	// Define a Dialog id
 	private static final int DIALOG_WHAT_TO_DRAW = 1;
@@ -43,14 +49,20 @@ public class PaintPadActivity extends Activity implements
 	public static final int REQUEST_SETTING = 1;
 
 	// A handle to an instance of SharedPreferences
-	SharedPreferences prefs = null;
+	private SharedPreferences prefs;
+	private int mCount;
+
+	private MyHandler mMyHandler;
+
+	private final int TIME_TO_START_OVER_AGAIN = 1000;
+	private final int TIME_BEFORE_EXIT = TIME_TO_START_OVER_AGAIN + 500;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		mPaintPad = new PaintPad(this);
-		this.context = this;
+		this.mContext = this;
 		setContentView(mPaintPad);
 
 		setDefaultDrawing();
@@ -62,11 +74,13 @@ public class PaintPadActivity extends Activity implements
 				.getDefaultSharedPreferences(getApplicationContext());
 		prefs.registerOnSharedPreferenceChangeListener(this);
 
-		fullScreen = prefs.getBoolean("check_full_screen", false);
+		isFullScreen = prefs.getBoolean("check_full_screen", false);
 
-		if (fullScreen) {
+		if (isFullScreen) {
 			makeFullScreen();
 		}
+
+		mMyHandler = new MyHandler();
 	}
 
 	@Override
@@ -86,9 +100,9 @@ public class PaintPadActivity extends Activity implements
 	 * Set the default drawing
 	 */
 	private void setDefaultDrawing() {
-		factory = new DrawingFactory();
-		drawing = factory.createDrawing(DrawingId.DRAWING_PATHLINE);
-		mPaintPad.setDrawing(drawing);
+		mDrawingFactory = new DrawingFactory();
+		mDrawing = mDrawingFactory.createDrawing(DrawingId.DRAWING_PATHLINE);
+		mPaintPad.setDrawing(mDrawing);
 	}
 
 	/**
@@ -102,6 +116,8 @@ public class PaintPadActivity extends Activity implements
 			showDialog(PaintPadActivity.DIALOG_WHAT_TO_DRAW);
 			return true;
 		case KeyEvent.KEYCODE_BACK:
+			handleBackKeyDown();
+			return true;
 		case KeyEvent.KEYCODE_DPAD_CENTER:
 			mPaintPad.saveBitmap();
 			this.finish();
@@ -111,6 +127,49 @@ public class PaintPadActivity extends Activity implements
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * Handler back key down event.
+	 * </br> If back key is pressed once in 1 second, exit. Otherwise, save the bitmap before exiting.
+	 */
+	private void handleBackKeyDown() {
+		if (mCount > 0) {
+			mCount = 0;
+			mPaintPad.saveBitmap();
+		} else {
+			mCount++;
+			
+			Toast.makeText(mContext, getResources().getString(R.string.tip_press_again_to_save_bitmap_before_leaving), Toast.LENGTH_SHORT).show();
+
+			Message msg_reset = Message.obtain();
+			msg_reset.what = MyHandler.MSG_RESET;
+			mMyHandler.sendMessageDelayed(msg_reset, TIME_TO_START_OVER_AGAIN);
+			
+			Message msg_exit = Message.obtain();
+			msg_exit.what = MyHandler.MSG_EXIT;
+			mMyHandler.sendMessageDelayed(msg_exit, TIME_BEFORE_EXIT);
+
+		}
+	}
+
+	private class MyHandler extends Handler {
+		public static final int MSG_RESET = 0;
+		public static final int MSG_EXIT = 1;
+
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case MSG_RESET:
+				mCount = 0;
+				break;
+			case MSG_EXIT:
+				finish();
+				break;
+			default:
+				break;
+			}
+		}
 	}
 
 	/**
@@ -174,10 +233,10 @@ public class PaintPadActivity extends Activity implements
 				getResources().getString(R.string.tip_current_is_drawing)
 						+ items[which], Toast.LENGTH_SHORT).show();
 
-		drawing = factory.createDrawing(which);
+		mDrawing = mDrawingFactory.createDrawing(which);
 
-		if (drawing != null) {
-			mPaintPad.setDrawing(drawing);
+		if (mDrawing != null) {
+			mPaintPad.setDrawing(mDrawing);
 		}
 	}
 
@@ -214,7 +273,6 @@ public class PaintPadActivity extends Activity implements
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
 		case REQUEST_SETTING:
-			System.out.println("result");
 			break;
 		}
 	}
@@ -225,7 +283,7 @@ public class PaintPadActivity extends Activity implements
 	 */
 	private void startSettingsActivity() {
 		Intent intent = new Intent();
-		intent.setClass(this.context, SettingsActivity.class);
+		intent.setClass(this.mContext, SettingsActivity.class);
 		startActivityForResult(intent, PaintPadActivity.REQUEST_SETTING);
 	}
 

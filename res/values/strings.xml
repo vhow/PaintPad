@@ -7,6 +7,7 @@
 	<string name="dialog_input_text">Plase input: </string>
 	<string name="alert_dialog_ok">Ok</string>
 	<string name="alert_dialog_cancel">Cancel</string>
+	<string name="tip_press_again_to_save_bitmap_before_leaving">Leaving... Press again to save the bitmap.</string>
 
 	<!-- about start -->
 	<string name="about_shortcut_info">

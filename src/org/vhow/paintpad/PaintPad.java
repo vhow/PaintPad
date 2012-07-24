@@ -179,7 +179,7 @@ public class PaintPad extends View {
 					this.context,
 					getResources().getString(
 							R.string.tip_sdcard_is_not_available),
-					Toast.LENGTH_LONG).show();
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -220,7 +220,7 @@ public class PaintPad extends View {
 
 		// Get formatted time stamp
 		String timeStamp = format.format(date);
-		
+
 		String suffixName = ".png";
 
 		String fullPath = "";
