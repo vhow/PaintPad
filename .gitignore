@@ -4,5 +4,5 @@
 *.cfg
 *.project
 *.classpath
-/gen
-/bin
+app/gen/
+app/bin/
