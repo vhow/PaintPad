@@ -5,8 +5,10 @@
 	<string name="dialog_title_what_to_draw">选择所要绘制的图形</string>
 	<string name="tip_current_is_drawing">当前正在绘制： </string>
 	<string name="dialog_input_text">请输入文字</string>
-	<string name="alert_dialog_ok">确定</string>
+	<string name="alert_dialog_ok">是的</string>
 	<string name="alert_dialog_cancel">取消</string>
+	<string name="dialog_title_save_it_or_not">保存图片吗？</string>	
+	<string name="alert_dialog_no">不用</string>
 	<string name="tip_press_again_to_save_bitmap_before_leaving">正在退出... 再按一次，以保存图片</string>
 	
 
