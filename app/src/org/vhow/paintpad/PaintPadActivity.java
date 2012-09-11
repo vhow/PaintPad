@@ -45,6 +45,7 @@ public class PaintPadActivity extends Activity implements
 
 	// Define a Dialog id
 	private static final int DIALOG_WHAT_TO_DRAW = 1;
+	private static final int DIALOG_SAVE_IT_OR_NOT = 2;
 
 	public static final int REQUEST_SETTING = 1;
 
@@ -116,7 +117,8 @@ public class PaintPadActivity extends Activity implements
 			showDialog(PaintPadActivity.DIALOG_WHAT_TO_DRAW);
 			return true;
 		case KeyEvent.KEYCODE_BACK:
-			handleBackKeyDown();
+			// handleBackKeyDown();
+			showDialog(PaintPadActivity.DIALOG_SAVE_IT_OR_NOT);
 			return true;
 		case KeyEvent.KEYCODE_DPAD_CENTER:
 			mPaintPad.saveBitmap();
@@ -130,8 +132,8 @@ public class PaintPadActivity extends Activity implements
 	}
 
 	/**
-	 * Handler back key down event.
-	 * </br> If back key is pressed once in 1 second, exit. Otherwise, save the bitmap before exiting.
+	 * Handler back key down event. </br> If back key is pressed once in 1
+	 * second, exit. Otherwise, save the bitmap before exiting.
 	 */
 	private void handleBackKeyDown() {
 		if (mCount > 0) {
@@ -139,18 +141,25 @@ public class PaintPadActivity extends Activity implements
 			mPaintPad.saveBitmap();
 		} else {
 			mCount++;
-			
-			Toast.makeText(mContext, getResources().getString(R.string.tip_press_again_to_save_bitmap_before_leaving), Toast.LENGTH_SHORT).show();
+
+			Toast.makeText(
+					mContext,
+					getResources()
+							.getString(
+									R.string.tip_press_again_to_save_bitmap_before_leaving),
+					Toast.LENGTH_SHORT).show();
 
 			Message msg_reset = Message.obtain();
 			msg_reset.what = MyHandler.MSG_RESET;
 			mMyHandler.sendMessageDelayed(msg_reset, TIME_TO_START_OVER_AGAIN);
-			
+
 			Message msg_exit = Message.obtain();
 			msg_exit.what = MyHandler.MSG_EXIT;
 			mMyHandler.sendMessageDelayed(msg_exit, TIME_BEFORE_EXIT);
 
 		}
+
+		// showDialog(DIALOG_WHAT_TO_DRAW);
 	}
 
 	private class MyHandler extends Handler {
@@ -201,13 +210,46 @@ public class PaintPadActivity extends Activity implements
 		return alert;
 	}
 
+	/**
+	 * @return A dialog contents all the shapes available.
+	 */
+	private Dialog showSaveItOrNotDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(
+				PaintPadActivity.this);
+
+		builder.setTitle(getResources().getString(
+				R.string.dialog_title_save_it_or_not));
+
+		builder.setPositiveButton(R.string.alert_dialog_ok,
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						mPaintPad.saveBitmap();
+						finish();
+					}
+				});
+
+		builder.setNegativeButton(R.string.alert_dialog_no,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						finish();
+					}
+				});
+
+		AlertDialog alert = builder.create();
+		return alert;
+	}
+
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
 		case PaintPadActivity.DIALOG_WHAT_TO_DRAW:
 			return showWhatToDrawDialog();
+		case PaintPadActivity.DIALOG_SAVE_IT_OR_NOT:
+			return showSaveItOrNotDialog();
 		}
-		return super.onCreateDialog(id);
+		return null;
 	}
 
 	@Override
