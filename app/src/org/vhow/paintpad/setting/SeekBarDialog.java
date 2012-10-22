@@ -13,13 +13,13 @@ import android.widget.TextView;
  * Use this class to set the width of the brush.
  */
 public class SeekBarDialog extends AlertDialog {
-	private Context context;
-	private TextView textView = null;
-	private SeekBar seekBar = null;
+	private Context mContext;
+	private TextView mTextView = null;
+	private SeekBar mSeekBar = null;
 
 	public SeekBarDialog(Context context) {
 		this(context, android.R.style.Theme_Panel);
-		this.context = context;
+		this.mContext = context;
 	}
 
 	public SeekBarDialog(Context context, int theme) {
@@ -28,18 +28,18 @@ public class SeekBarDialog extends AlertDialog {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		this.seekBar = new SeekBar(this.context);
+		this.mSeekBar = new SeekBar(this.mContext);
 		setSeekBar();
 
-		setView(seekBar);
+		setView(mSeekBar);
 
 		super.onCreate(savedInstanceState);
 	}
 
 	private void setSeekBar() {
-		this.seekBar.setMax(20);
-		this.seekBar.setProgress((int) Brush.getPen().getStrokeWidth());
-		this.seekBar.setOnSeekBarChangeListener(seekBarListener);
+		this.mSeekBar.setMax(20);
+		this.mSeekBar.setProgress((int) Brush.getPen().getStrokeWidth());
+		this.mSeekBar.setOnSeekBarChangeListener(seekBarListener);
 	}
 
 	OnSeekBarChangeListener seekBarListener = new OnSeekBarChangeListener() {
@@ -62,10 +62,10 @@ public class SeekBarDialog extends AlertDialog {
 	 *            the max width of the brush
 	 */
 	public void setSeekBarMax(int max) {
-		this.seekBar.setMax(max);
+		this.mSeekBar.setMax(max);
 	}
 
 	public int getSeekBarMax() {
-		return this.seekBar.getMax();
+		return this.mSeekBar.getMax();
 	}
 }

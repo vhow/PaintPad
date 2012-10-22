@@ -39,7 +39,7 @@ public class PaintPadActivity extends Activity implements
 	private PaintPad mPaintPad;
 	private Context mContext;
 	private Drawing mDrawing;
-	private Paint pen;
+	private Paint mPaint;
 	private DrawingFactory mDrawingFactory;
 	private boolean isFullScreen;
 

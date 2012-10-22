@@ -28,13 +28,13 @@ import android.widget.Toast;
  */
 public class PaintPad extends View {
 	private float tempX, tempY;
-	private Bitmap bitmap = null;
-	private Canvas paper = null;
+	private Bitmap mBitmap = null;
+	private Canvas mCanvas = null;
 	private boolean isMoving = false;
-	private Drawing drawing = null;
-	private int bgcolor;
+	private Drawing mDrawing = null;
+	private int bgColor;
 
-	private Context context;
+	private Context mContext;
 
 	/**
 	 * Set the shape that is drawing.
@@ -43,25 +43,25 @@ public class PaintPad extends View {
 	 *            Which shape to drawing current.
 	 */
 	public void setDrawing(Drawing drawing) {
-		this.drawing = drawing;
+		this.mDrawing = drawing;
 	}
 
 	public PaintPad(Context context) {
 		super(context);
-		this.context = context;
+		this.mContext = context;
 		// Get the information about the screen.
 		ScreenInfo screenInfo = new ScreenInfo((Activity) context);
 
 		/**
 		 * Create a bitmap with the size of the screen.
 		 */
-		bitmap = Bitmap.createBitmap(screenInfo.getWidthPixels(),
+		mBitmap = Bitmap.createBitmap(screenInfo.getWidthPixels(),
 				screenInfo.getHeightPixels(), Bitmap.Config.ARGB_8888);
 
-		paper = new Canvas(this.bitmap);
+		mCanvas = new Canvas(this.mBitmap);
 
 		// Set the background color
-		paper.drawColor(getResources().getColor(R.color.color_default_bg));
+		mCanvas.drawColor(getResources().getColor(R.color.color_default_bg));
 
 		this.isMoving = false;
 	}
@@ -71,14 +71,14 @@ public class PaintPad extends View {
 		super.onDraw(canvas);
 
 		// Draw the bitmap
-		canvas.drawBitmap(bitmap, 0, 0, new Paint(Paint.DITHER_FLAG));
+		canvas.drawBitmap(mBitmap, 0, 0, new Paint(Paint.DITHER_FLAG));
 
 		// Call the drawing's draw() method.
-		if (drawing != null && this.isMoving == true) {
-			drawing.draw(canvas);
+		if (mDrawing != null && this.isMoving == true) {
+			mDrawing.draw(canvas);
 		}
 
-		if (!(drawing instanceof Eraser)) {
+		if (!(mDrawing instanceof Eraser)) {
 			// Drawing a brush icon in this view.
 			Bitmap pen = BitmapFactory.decodeResource(this.getResources(),
 					R.drawable.pen);
@@ -129,7 +129,7 @@ public class PaintPad extends View {
 		this.tempX = 0;
 		this.tempY = 0;
 
-		drawing.fingerUp(x, y, paper);
+		mDrawing.fingerUp(x, y, mCanvas);
 		this.isMoving = false;
 	}
 
@@ -146,7 +146,7 @@ public class PaintPad extends View {
 		this.tempY = y;
 		this.isMoving = true;
 
-		drawing.fingerMove(x, y, paper);
+		mDrawing.fingerMove(x, y, mCanvas);
 	}
 
 	/**
@@ -159,7 +159,7 @@ public class PaintPad extends View {
 	 */
 	private void fingerDown(float x, float y) {
 		this.isMoving = false;
-		drawing.fingerDown(x, y, paper);
+		mDrawing.fingerDown(x, y, mCanvas);
 	}
 
 	/**
@@ -171,12 +171,12 @@ public class PaintPad extends View {
 		if (Environment.MEDIA_MOUNTED.equals(state)) {
 			saveToSdcard();
 		} else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
-			Toast.makeText(this.context,
+			Toast.makeText(this.mContext,
 					getResources().getString(R.string.tip_sdcard_is_read_only),
 					Toast.LENGTH_LONG).show();
 		} else {
 			Toast.makeText(
-					this.context,
+					this.mContext,
 					getResources().getString(
 							R.string.tip_sdcard_is_not_available),
 					Toast.LENGTH_SHORT).show();
@@ -184,7 +184,7 @@ public class PaintPad extends View {
 	}
 
 	public void changeBgColor(int color) {
-		this.paper.drawColor(color);
+		this.mCanvas.drawColor(color);
 		this.reDraw();
 	}
 
@@ -192,7 +192,7 @@ public class PaintPad extends View {
 	 * Clear the drawing in the canvas.
 	 */
 	public void clearCanvas() {
-		this.paper.drawColor(getResources().getColor(R.color.color_default_bg));
+		this.mCanvas.drawColor(getResources().getColor(R.color.color_default_bg));
 		this.reDraw();
 	}
 
@@ -226,14 +226,14 @@ public class PaintPad extends View {
 		String fullPath = "";
 		fullPath = sdcard_path + "/" + myFloder + "/" + timeStamp + suffixName;
 		try {
-			Toast.makeText(this.context,
+			Toast.makeText(this.mContext,
 					getResources().getString(R.string.tip_save_to) + fullPath,
 					Toast.LENGTH_LONG).show();
-			bitmap.compress(Bitmap.CompressFormat.PNG, 100,
+			mBitmap.compress(Bitmap.CompressFormat.PNG, 100,
 					new FileOutputStream(fullPath));
 		} catch (FileNotFoundException e) {
 			Toast.makeText(
-					this.context,
+					this.mContext,
 					getResources().getString(R.string.tip_sava_failed)
 							+ fullPath, Toast.LENGTH_LONG).show();
 			e.printStackTrace();
