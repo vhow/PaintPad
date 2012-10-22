@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Hello World, Graffiti!</string>
 	<string name="app_name">画图板</string>
 	<string name="dialog_title_what_to_draw">选择所要绘制的图形</string>
 	<string name="tip_current_is_drawing">当前正在绘制： </string>
