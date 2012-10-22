@@ -4,7 +4,7 @@ package org.vhow.paintpad.drawings;
  * Factory class, used to generate drawing.
  */
 public class DrawingFactory {
-	Drawing drawing = null;
+	private Drawing mDrawing = null;
 
 	/**
 	 * @param id
@@ -14,28 +14,28 @@ public class DrawingFactory {
 	public Drawing createDrawing(int id) {
 		switch (id) {
 		case DrawingId.DRAWING_PATHLINE:
-			drawing = new PathLine();
+			mDrawing = new PathLine();
 			break;
 		case DrawingId.DRAWING_STRAIGHTLINE:
-			drawing = new StraightLine();
+			mDrawing = new StraightLine();
 			break;
 		case DrawingId.DRAWING_RECT:
-			drawing = new Rect();
+			mDrawing = new Rect();
 			break;
 		case DrawingId.DRAWING_OVAL:
-			drawing = new Oval();
+			mDrawing = new Oval();
 			break;
 		case DrawingId.DRAWING_CIRCLE:
-			drawing = new Circle();
+			mDrawing = new Circle();
 			break;
 		case DrawingId.DRAWING_POINTS:
-			drawing = new Points();
+			mDrawing = new Points();
 			break;
 		case DrawingId.DRAWING_ERASER:
-			drawing = new Eraser();
+			mDrawing = new Eraser();
 			break;
 		}
 
-		return drawing;
+		return mDrawing;
 	}
 }

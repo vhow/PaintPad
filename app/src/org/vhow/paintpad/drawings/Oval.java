@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.RectF;
 
 public class Oval extends Drawing {
-	RectF rectF = null;
+	private RectF rectF = null;
 
 	public Oval() {
 		rectF = new RectF();

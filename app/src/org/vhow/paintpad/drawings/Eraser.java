@@ -10,10 +10,10 @@ import android.graphics.Path;
  * color.
  */
 public class Eraser extends Drawing {
-	Path mPath = null;
+	private Path mPath = null;
 	private float mX, mY;
 	private static final float TOUCH_TOLERANCE = 4;
-	Paint eraser;
+	private Paint eraser;
 
 	public Eraser() {
 		mPath = new Path();

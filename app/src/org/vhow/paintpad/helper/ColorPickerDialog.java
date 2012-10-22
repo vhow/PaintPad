@@ -13,7 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class ColorPickerDialog extends Dialog {
-	String title;
+	private String mTitle;
 
 	public interface OnColorChangedListener {
 		void colorChanged(int color);
@@ -164,7 +164,7 @@ public class ColorPickerDialog extends Dialog {
 
 		mListener = listener;
 		mInitialColor = initialColor;
-		title = str;
+		mTitle = str;
 	}
 
 	@Override
@@ -178,6 +178,6 @@ public class ColorPickerDialog extends Dialog {
 		};
 
 		setContentView(new ColorPickerView(getContext(), l, mInitialColor));
-		setTitle(title);
+		setTitle(mTitle);
 	}
 }

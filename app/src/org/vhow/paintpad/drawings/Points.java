@@ -9,26 +9,26 @@ import android.graphics.Paint;
  * Some points.
  */
 public class Points extends Drawing {
-	Paint pen;
+	private Paint mPaint;
 
 	public Points() {
-		pen = new Paint(Brush.getPen());
-		pen.setStyle(Paint.Style.FILL);
+		mPaint = new Paint(Brush.getPen());
+		mPaint.setStyle(Paint.Style.FILL);
 	}
 
 	@Override
 	public void draw(Canvas canvas) {
 		canvas.drawCircle(stopX, stopY, Brush.getPen().getStrokeWidth() + 1,
-				pen);
+				mPaint);
 	}
 
 	@Override
 	public void fingerDown(float x, float y, Canvas canvas) {
-		canvas.drawCircle(x, y, Brush.getPen().getStrokeWidth() + 1, pen);
+		canvas.drawCircle(x, y, Brush.getPen().getStrokeWidth() + 1, mPaint);
 	}
 
 	@Override
 	public void fingerMove(float x, float y, Canvas canvas) {
-		canvas.drawCircle(x, y, Brush.getPen().getStrokeWidth() + 1, pen);
+		canvas.drawCircle(x, y, Brush.getPen().getStrokeWidth() + 1, mPaint);
 	}
 }

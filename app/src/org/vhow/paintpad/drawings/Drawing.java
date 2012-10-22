@@ -6,10 +6,10 @@ import android.graphics.Canvas;
  * Abstract shape. All the shapes in this application extends this class.
  */
 public abstract class Drawing {
-	public float startX;
-	public float startY;
-	public float stopX;
-	public float stopY;
+	protected float startX;
+	protected float startY;
+	protected float stopX;
+	protected float stopY;
 
 	public void reset() {
 		this.startX = 0;

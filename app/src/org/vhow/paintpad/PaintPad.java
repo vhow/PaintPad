@@ -27,14 +27,14 @@ import android.widget.Toast;
  * This is our main View class.
  */
 public class PaintPad extends View {
-	float tempX, tempY;
+	private float tempX, tempY;
 	private Bitmap bitmap = null;
 	private Canvas paper = null;
-	boolean isMoving = false;
-	Drawing drawing = null;
-	int bgcolor;
+	private boolean isMoving = false;
+	private Drawing drawing = null;
+	private int bgcolor;
 
-	Context context;
+	private Context context;
 
 	/**
 	 * Set the shape that is drawing.

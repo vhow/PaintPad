@@ -13,9 +13,9 @@ import android.widget.TextView;
  * Use this class to set the width of the brush.
  */
 public class SeekBarDialog extends AlertDialog {
-	Context context;
-	TextView textView = null;
-	SeekBar seekBar = null;
+	private Context context;
+	private TextView textView = null;
+	private SeekBar seekBar = null;
 
 	public SeekBarDialog(Context context) {
 		this(context, android.R.style.Theme_Panel);
