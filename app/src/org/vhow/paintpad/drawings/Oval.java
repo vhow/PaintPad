@@ -6,19 +6,19 @@ import android.graphics.Canvas;
 import android.graphics.RectF;
 
 public class Oval extends Drawing {
-	private RectF rectF = null;
+	private RectF mRectF = null;
 
 	public Oval() {
-		rectF = new RectF();
+		mRectF = new RectF();
 	}
 
 	@Override
 	public void draw(Canvas canvas) {
-		rectF.left = this.startX;
-		rectF.right = this.stopX;
-		rectF.top = this.startY;
-		rectF.bottom = this.stopY;
+		mRectF.left = this.startX;
+		mRectF.right = this.stopX;
+		mRectF.top = this.startY;
+		mRectF.bottom = this.stopY;
 
-		canvas.drawOval(rectF, Brush.getPen());
+		canvas.drawOval(mRectF, Brush.getPen());
 	}
 }
