@@ -13,6 +13,7 @@ import android.widget.TextView;
  * Use this class to set the width of the brush.
  */
 public class SeekBarDialog extends AlertDialog {
+	private static final int MAX_WIDTH = 20;
 	private Context mContext;
 	private TextView mTextView = null;
 	private SeekBar mSeekBar = null;
@@ -37,7 +38,7 @@ public class SeekBarDialog extends AlertDialog {
 	}
 
 	private void setSeekBar() {
-		this.mSeekBar.setMax(20);
+		this.mSeekBar.setMax(MAX_WIDTH);
 		this.mSeekBar.setProgress((int) Brush.getPen().getStrokeWidth());
 		this.mSeekBar.setOnSeekBarChangeListener(seekBarListener);
 	}
