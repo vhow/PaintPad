@@ -9,7 +9,7 @@ import android.graphics.Path;
  * Track the finger's movement on the screen.
  */
 public class PathLine extends Drawing {
-	Path mPath = null;
+	private Path mPath = null;
 	private float mX, mY;
 	private static final float TOUCH_TOLERANCE = 4;
 

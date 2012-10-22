@@ -25,16 +25,16 @@ import android.preference.PreferenceActivity;
  */
 public class SettingsActivity extends PreferenceActivity implements
 		OnPreferenceClickListener, ColorPickerDialog.OnColorChangedListener {
-	SharedPreferences prefs = null;
-	Preference pen_width = null;
-	Preference pen_color = null;
-	Preference canvas_bg_color = null;
-	String pen_width_key;
-	String pen_color_key;
-	CheckBoxPreference pen_style = null;
+	private SharedPreferences prefs = null;
+	private Preference pen_width = null;
+	private Preference pen_color = null;
+	private Preference canvas_bg_color = null;
+	private String pen_width_key;
+	private String pen_color_key;
+	private CheckBoxPreference pen_style = null;
 
-	Preference versionName;
-	Preference lastBuildTime;
+	private Preference versionName;
+	private Preference lastBuildTime;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

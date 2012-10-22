@@ -7,10 +7,10 @@ import android.util.DisplayMetrics;
  * ScreenInfo.java Use this class to get the information of the screen.
  */
 public class ScreenInfo {
-	Activity activity;
+	private Activity activity;
 
-	int widthPixels;
-	int heightPixels;
+	private int widthPixels;
+	private int heightPixels;
 
 	/**
 	 * @param activity
