@@ -1,10 +1,4 @@
-package org.vhow.paintpad;
-
-import org.vhow.paintpad.drawings.Drawing;
-import org.vhow.paintpad.drawings.DrawingFactory;
-import org.vhow.paintpad.drawings.DrawingId;
-import org.vhow.paintpad.setting.SettingsActivity;
-import org.vhow.paintpad.tools.Brush;
+package com.gmail.dailyefforts.paintpad;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -26,6 +20,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import com.gmail.dailyefforts.paintpad.drawings.Drawing;
+import com.gmail.dailyefforts.paintpad.drawings.DrawingFactory;
+import com.gmail.dailyefforts.paintpad.drawings.DrawingId;
+import com.gmail.dailyefforts.paintpad.setting.SettingsActivity;
+import com.gmail.dailyefforts.paintpad.tools.Brush;
 
 /**
  * The main Activity of the application.

@@ -1,4 +1,4 @@
-package org.vhow.paintpad;
+package com.gmail.dailyefforts.paintpad;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,10 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.vhow.paintpad.drawings.Drawing;
-import org.vhow.paintpad.drawings.Eraser;
-import org.vhow.paintpad.helper.ScreenInfo;
-
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -18,10 +14,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Environment;
-import android.text.format.DateFormat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
+
+import com.gmail.dailyefforts.paintpad.drawings.Drawing;
+import com.gmail.dailyefforts.paintpad.drawings.Eraser;
+import com.gmail.dailyefforts.paintpad.helper.ScreenInfo;
 
 /**
  * This is our main View class.

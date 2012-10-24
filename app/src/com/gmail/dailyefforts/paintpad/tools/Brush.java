@@ -1,4 +1,4 @@
-package org.vhow.paintpad.tools;
+package com.gmail.dailyefforts.paintpad.tools;
 
 import android.graphics.Paint;
 

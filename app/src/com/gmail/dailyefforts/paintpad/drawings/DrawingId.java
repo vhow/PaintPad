@@ -1,4 +1,4 @@
-package org.vhow.paintpad.drawings;
+package com.gmail.dailyefforts.paintpad.drawings;
 
 /**
  * Defines the IDs of the drawings.
