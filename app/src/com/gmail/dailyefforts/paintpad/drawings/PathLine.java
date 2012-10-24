@@ -1,6 +1,6 @@
-package org.vhow.paintpad.drawings;
+package com.gmail.dailyefforts.paintpad.drawings;
 
-import org.vhow.paintpad.tools.Brush;
+import com.gmail.dailyefforts.paintpad.tools.Brush;
 
 import android.graphics.Canvas;
 import android.graphics.Path;

@@ -1,4 +1,4 @@
-package org.vhow.paintpad.helper;
+package com.gmail.dailyefforts.paintpad.helper;
 
 import android.app.Activity;
 import android.util.DisplayMetrics;

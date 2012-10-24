@@ -1,12 +1,8 @@
-package org.vhow.paintpad.setting;
+package com.gmail.dailyefforts.paintpad.setting;
 
 import java.text.SimpleDateFormat;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-
-import org.vhow.paintpad.R;
-import org.vhow.paintpad.helper.ColorPickerDialog;
-import org.vhow.paintpad.tools.Brush;
 
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -17,6 +13,10 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
+
+import com.gmail.dailyefforts.paintpad.R;
+import com.gmail.dailyefforts.paintpad.helper.ColorPickerDialog;
+import com.gmail.dailyefforts.paintpad.tools.Brush;
 
 /**
  * When the user select "Setting" menu, jump to this Activity. This class

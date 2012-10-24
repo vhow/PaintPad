@@ -1,4 +1,4 @@
-package org.vhow.paintpad;
+package com.gmail.dailyefforts.paintpad;
 
 import android.app.Activity;
 import android.os.Bundle;

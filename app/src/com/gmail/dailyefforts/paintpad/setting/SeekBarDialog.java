@@ -1,6 +1,6 @@
-package org.vhow.paintpad.setting;
+package com.gmail.dailyefforts.paintpad.setting;
 
-import org.vhow.paintpad.tools.Brush;
+import com.gmail.dailyefforts.paintpad.tools.Brush;
 
 import android.app.AlertDialog;
 import android.content.Context;
