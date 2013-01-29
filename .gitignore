@@ -2,7 +2,6 @@
 *.apk
 *.properties
 *.cfg
-*.project
-*.classpath
 app/gen/
 app/bin/
+app/.settings/
