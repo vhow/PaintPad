@@ -9,7 +9,7 @@ public class Brush extends Paint {
 	/**
 	 * Generate the instance when the class is loaded
 	 */
-	private static Brush brush = new Brush();
+	private static final Brush brush = new Brush();
 
 	/**
 	 * Make the constructor private, to stop others to create instance by the
