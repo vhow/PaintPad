@@ -10,7 +10,8 @@ import android.graphics.Canvas;
 public class Rect extends Drawing {
 	@Override
 	public void draw(Canvas canvas) {
+		assert (canvas != null);
 		canvas.drawRect(this.startX, this.startY, this.stopX, this.stopY,
-				Brush.getPen());
+				Brush.getInstance());
 	}
 }

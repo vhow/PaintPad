@@ -9,7 +9,7 @@ public class Brush extends Paint {
 	/**
 	 * Generate the instance when the class is loaded
 	 */
-	private static final Brush brush = new Brush();
+	private static final Brush sBrush = new Brush();
 
 	/**
 	 * Make the constructor private, to stop others to create instance by the
@@ -23,20 +23,20 @@ public class Brush extends Paint {
 	 * 
 	 * @return the single instance
 	 */
-	public static Brush getPen() {
-		return brush;
+	public static Brush getInstance() {
+		return sBrush;
 	}
 
 	/**
 	 * reset the brush
 	 */
 	public void reset() {
-		brush.setAntiAlias(true);
-		brush.setDither(true);
-		brush.setColor(0xFF000000);
-		brush.setStyle(Paint.Style.STROKE);
-		brush.setStrokeJoin(Paint.Join.ROUND);
-		brush.setStrokeCap(Paint.Cap.ROUND);
-		brush.setStrokeWidth(2);
+		sBrush.setAntiAlias(true);
+		sBrush.setDither(true);
+		sBrush.setColor(0xFF000000);
+		sBrush.setStyle(Paint.Style.STROKE);
+		sBrush.setStrokeJoin(Paint.Join.ROUND);
+		sBrush.setStrokeCap(Paint.Cap.ROUND);
+		sBrush.setStrokeWidth(2);
 	}
 }

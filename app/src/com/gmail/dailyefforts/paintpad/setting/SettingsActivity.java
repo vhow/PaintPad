@@ -104,8 +104,8 @@ public class SettingsActivity extends PreferenceActivity implements
 	public boolean onPreferenceClick(Preference preference) {
 		if (preference.getKey().equals(pen_color_key)) {
 			String str = getResources().getString(R.string.tip_choose_color);
-			new ColorPickerDialog(this, this, Brush.getPen().getColor(), str)
-					.show();
+			new ColorPickerDialog(this, this, Brush.getInstance().getColor(),
+					str).show();
 		} else if (preference.getKey().equals(pen_width_key)) {
 			showSetBrushWidthDialog();
 		}
@@ -117,7 +117,7 @@ public class SettingsActivity extends PreferenceActivity implements
 	 */
 	private void showSetBrushWidthDialog() {
 		SeekBarDialog seekBarDialog = new SeekBarDialog(this);
-		seekBarDialog.setTitle(Brush.getPen().getStrokeWidth() + " pixel");
+		seekBarDialog.setTitle(Brush.getInstance().getStrokeWidth() + " pixel");
 		seekBarDialog.setButton(
 				getResources().getString(R.string.alert_dialog_ok),
 				new DialogInterface.OnClickListener() {
@@ -132,7 +132,7 @@ public class SettingsActivity extends PreferenceActivity implements
 	 * When brush's color is changed, this method will be called.
 	 */
 	public void colorChanged(int color) {
-		Brush pen = Brush.getPen();
+		Brush pen = Brush.getInstance();
 		pen.setColor(color);
 	}
 }

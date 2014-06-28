@@ -10,8 +10,9 @@ import android.graphics.Path;
  * color.
  */
 public class Eraser extends Drawing {
-	private Path mPath = null;
-	private float mX, mY;
+	private Path mPath;
+	private float mX;
+	private float mY;
 	private static final float TOUCH_TOLERANCE = 4;
 	private Paint eraser;
 
@@ -25,15 +26,15 @@ public class Eraser extends Drawing {
 	@Override
 	public void draw(Canvas canvas) {
 		System.out.println("drawing earser");
-		canvas.drawPath(this.mPath, eraser);
+		canvas.drawPath(mPath, eraser);
 	}
 
 	@Override
 	public void fingerDown(float x, float y, Canvas canvas) {
 		mPath.reset();
 		mPath.moveTo(x, y);
-		this.mX = x;
-		this.mY = y;
+		mX = x;
+		mY = y;
 	}
 
 	@Override
@@ -45,13 +46,13 @@ public class Eraser extends Drawing {
 			mX = x;
 			mY = y;
 		}
-		this.draw(canvas);
+		draw(canvas);
 	}
 
 	@Override
 	public void fingerUp(float x, float y, Canvas canvas) {
 		mPath.lineTo(mX, mY);
-		this.draw(canvas);
+		draw(canvas);
 		mPath.reset();
 	}
 }

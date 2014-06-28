@@ -18,7 +18,7 @@ public class About extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		switch (keyCode) {
 		case KeyEvent.KEYCODE_BACK:
-			About.this.finish();
+			finish();
 			break;
 		}
 		return super.onKeyDown(keyCode, event);

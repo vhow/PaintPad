@@ -8,7 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
-import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,7 +22,7 @@ import android.widget.Toast;
 
 import com.gmail.dailyefforts.paintpad.drawings.Drawing;
 import com.gmail.dailyefforts.paintpad.drawings.DrawingFactory;
-import com.gmail.dailyefforts.paintpad.drawings.DrawingId;
+import com.gmail.dailyefforts.paintpad.drawings.Drawings;
 import com.gmail.dailyefforts.paintpad.setting.SettingsActivity;
 import com.gmail.dailyefforts.paintpad.tools.Brush;
 
@@ -33,13 +32,12 @@ import com.gmail.dailyefforts.paintpad.tools.Brush;
 public class PaintPadActivity extends Activity implements
 		OnSharedPreferenceChangeListener {
 
-	private static final String TAG = "PaintPadActivity";
+	private static final String TAG = PaintPadActivity.class.getSimpleName();
 	private static final boolean DEBUG = false;
 
 	private PaintPad mPaintPad;
 	private Context mContext;
 	private Drawing mDrawing;
-	private Paint mPaint;
 	private DrawingFactory mDrawingFactory;
 	private boolean isFullScreen;
 
@@ -68,7 +66,7 @@ public class PaintPadActivity extends Activity implements
 
 		setDefaultDrawing();
 
-		Brush.getPen().reset();
+		Brush.getInstance().reset();
 
 		// Get the handle to the instance of settings
 		prefs = PreferenceManager
@@ -102,7 +100,7 @@ public class PaintPadActivity extends Activity implements
 	 */
 	private void setDefaultDrawing() {
 		mDrawingFactory = new DrawingFactory();
-		mDrawing = mDrawingFactory.createDrawing(DrawingId.DRAWING_PATHLINE);
+		mDrawing = mDrawingFactory.createDrawing(Drawings.PATHLINE);
 		mPaintPad.setDrawing(mDrawing);
 	}
 
@@ -194,7 +192,7 @@ public class PaintPadActivity extends Activity implements
 		builder.setSingleChoiceItems(R.array.drawings, 0,
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
-						setWhatToDraw(which);
+						setWhatToDraw(Drawings.values()[which].ordinal());
 						dialog.dismiss();
 					}
 				});
@@ -275,7 +273,7 @@ public class PaintPadActivity extends Activity implements
 				getResources().getString(R.string.tip_current_is_drawing)
 						+ items[which], Toast.LENGTH_SHORT).show();
 
-		mDrawing = mDrawingFactory.createDrawing(which);
+		mDrawing = mDrawingFactory.createDrawing(Drawings.values()[which]);
 
 		if (mDrawing != null) {
 			mPaintPad.setDrawing(mDrawing);
@@ -334,7 +332,7 @@ public class PaintPadActivity extends Activity implements
 		if (key.equals("pen_style_key")) {
 			setPenStyle(sharedPreferences.getBoolean("pen_style_key", false));
 		} else if (key.equals("pen_antialias_key")) {
-			Brush.getPen().setAntiAlias(
+			Brush.getInstance().setAntiAlias(
 					sharedPreferences.getBoolean(key, false));
 		}
 	}
@@ -347,9 +345,9 @@ public class PaintPadActivity extends Activity implements
 	 */
 	public void setPenStyle(boolean flag) {
 		if (flag) {
-			Brush.getPen().setStyle(Style.FILL);
+			Brush.getInstance().setStyle(Style.FILL);
 		} else {
-			Brush.getPen().setStyle(Style.STROKE);
+			Brush.getInstance().setStyle(Style.STROKE);
 		}
 	}
 }

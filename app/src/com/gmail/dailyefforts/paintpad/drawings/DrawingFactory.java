@@ -11,28 +11,33 @@ public class DrawingFactory {
 	 *            The id of the drawing.
 	 * @return The Drawing instance with the id.
 	 */
-	public Drawing createDrawing(int id) {
-		switch (id) {
-		case DrawingId.DRAWING_PATHLINE:
+	public Drawing createDrawing(Drawings drawing) {
+		if (drawing == null) {
+			return null;
+		}
+		switch (drawing) {
+		case PATHLINE:
 			mDrawing = new PathLine();
 			break;
-		case DrawingId.DRAWING_STRAIGHTLINE:
+		case STRAIGHTLINE:
 			mDrawing = new StraightLine();
 			break;
-		case DrawingId.DRAWING_RECT:
+		case RECT:
 			mDrawing = new Rect();
 			break;
-		case DrawingId.DRAWING_OVAL:
+		case OVAL:
 			mDrawing = new Oval();
 			break;
-		case DrawingId.DRAWING_CIRCLE:
+		case CIRCLE:
 			mDrawing = new Circle();
 			break;
-		case DrawingId.DRAWING_POINTS:
+		case POINTS:
 			mDrawing = new Points();
 			break;
-		case DrawingId.DRAWING_ERASER:
+		case ERASER:
 			mDrawing = new Eraser();
+			break;
+		default:
 			break;
 		}
 

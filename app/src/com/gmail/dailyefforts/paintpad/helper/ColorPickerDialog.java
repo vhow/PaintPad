@@ -14,13 +14,13 @@ import android.view.View;
 
 public class ColorPickerDialog extends Dialog {
 	private String mTitle;
+	
+	private OnColorChangedListener mListener;
+	private int mInitialColor;
 
 	public interface OnColorChangedListener {
 		void colorChanged(int color);
 	}
-
-	private OnColorChangedListener mListener;
-	private int mInitialColor;
 
 	private static class ColorPickerView extends View {
 		private Paint mPaint;

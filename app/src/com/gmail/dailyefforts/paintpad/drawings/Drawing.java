@@ -12,10 +12,10 @@ public abstract class Drawing {
 	protected float stopY;
 
 	public void reset() {
-		this.startX = 0;
-		this.startY = 0;
-		this.stopX = 0;
-		this.stopY = 0;
+		startX = 0;
+		startY = 0;
+		stopX = 0;
+		stopY = 0;
 	}
 
 	/**
@@ -27,21 +27,20 @@ public abstract class Drawing {
 	public abstract void draw(Canvas canvas);
 
 	public void fingerDown(float x, float y, Canvas canvas) {
-		this.reset();
-		this.startX = x;
-		this.startY = y;
+		reset();
+		startX = x;
+		startY = y;
 	}
 
 	public void fingerMove(float x, float y, Canvas canvas) {
-		this.stopX = x;
-		this.stopY = y;
+		stopX = x;
+		stopY = y;
 	}
 
 	public void fingerUp(float x, float y, Canvas canvas) {
-		this.stopX = x;
-		this.stopY = y;
-
-		this.draw(canvas);
-		this.reset();
+		stopX = x;
+		stopY = y;
+		draw(canvas);
+		reset();
 	}
 }

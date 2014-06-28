@@ -9,8 +9,8 @@ import android.util.DisplayMetrics;
 public class ScreenInfo {
 	private Activity mActivity;
 
-	private int mWidthPixels;
-	private int mHeightPixels;
+	private int mWidth;
+	private int mHeight;
 
 	/**
 	 * @param activity
@@ -22,24 +22,23 @@ public class ScreenInfo {
 	}
 
 	private void getDisplayMetrics() {
-		DisplayMetrics dm = new DisplayMetrics();
-
+		final DisplayMetrics dm = new DisplayMetrics();
 		mActivity.getWindowManager().getDefaultDisplay().getMetrics(dm);
-		this.mWidthPixels = dm.widthPixels;
-		this.mHeightPixels = dm.heightPixels;
+		mWidth = dm.widthPixels;
+		mHeight = dm.heightPixels;
 	}
 
 	/**
 	 * @return the number of pixel in the width of the screen.
 	 */
 	public int getWidthPixels() {
-		return mWidthPixels;
+		return mWidth;
 	}
 
 	/**
 	 * @return the number of pixel in the height of the screen.
 	 */
 	public int getHeightPixels() {
-		return mHeightPixels;
+		return mHeight;
 	}
 }

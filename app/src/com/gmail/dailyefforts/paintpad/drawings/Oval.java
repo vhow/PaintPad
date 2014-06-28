@@ -19,6 +19,6 @@ public class Oval extends Drawing {
 		mRectF.top = this.startY;
 		mRectF.bottom = this.stopY;
 
-		canvas.drawOval(mRectF, Brush.getPen());
+		canvas.drawOval(mRectF, Brush.getInstance());
 	}
 }
