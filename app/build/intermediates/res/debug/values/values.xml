@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/C:/syl/ws/paint_pad/app/res/values/arrays.xml -->
+    <eat-comment />
+
+    <string-array name="drawings">
+        <item>Track Line</item>
+        <item>Straight Line</item>
+        <item>Rectangle</item>
+        <item>Oval</item>
+        <item>Circle</item>
+        <item>Dots</item>
+        <item>Eraser</item>
+    </string-array>
+    <!-- From: file:/C:/syl/ws/paint_pad/app/res/values/colors.xml -->
+    <eat-comment />
+
+    <color name="color_default_bg">#ffffffff</color>
+    <!-- From: file:/C:/syl/ws/paint_pad/app/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="about_contact_author"><b>Contact the author:</b></string>
+    <string name="about_msg_by_author">If you have any suggestions on this software,
+		please send email to vhow@163.com.</string>
+    <string name="about_shortcut__down"><b>Down Key</b>		- Clear the canvas</string>
+    <string name="about_shortcut_center"><b>Center Key</b>		- Save the paint</string>
+    <string name="about_shortcut_info"><b>Shortcut Key：</b></string>
+    <string name="about_shortcut_up"><b>Up Key</b>		- Open a dialog, select what to draw.</string>
+    <string name="alert_dialog_cancel">Cancel</string>
+    <string name="alert_dialog_no">No</string>
+    <string name="alert_dialog_ok">Yes</string>
+    <string name="app_name">PaintPad</string>
+    <string name="canvas_bgcolor_key">canvas_bgcolor_key</string>
+    <string name="canvas_bgcolor_summary">Set the background color of the canvas</string>
+    <string name="canvas_bgcolor_title">Background color</string>
+    <string name="canvas_key">canvas_key</string>
+    <string name="canvas_summary">Canvas settings</string>
+    <string name="canvas_title">Canvas</string>
+    <string name="check_full_screen_key">check_full_screen</string>
+    <string name="checkbox_default_false">false</string>
+    <string name="checkbox_default_true">true</string>
+    <string name="dialog_input_text">Plase input: </string>
+    <string name="dialog_title_save_it_or_not">Save it or not?</string>
+    <string name="dialog_title_what_to_draw">Select what to draw</string>
+    <string name="folder_name_in_sdcard">PaintPad</string>
+    <string name="full_screen_off">Do not full screen when start up</string>
+    <string name="full_screen_on">Full screen when start up</string>
+    <string name="full_screen_title">Full screen</string>
+    <string name="menu_title_about">About</string>
+    <string name="menu_title_clear_screen">Clear</string>
+    <string name="menu_title_quit">Quit</string>
+    <string name="menu_title_save">Save</string>
+    <string name="menu_title_setting">Settings</string>
+    <string name="menu_title_what_to_draw">Shapes</string>
+    <string name="pen_color_key">pen_color_key</string>
+    <string name="pen_color_summary">Set the color of the brush</string>
+    <string name="pen_color_title">Color</string>
+    <string name="pen_key">pen_key</string>
+    <string name="pen_style_key">pen_style_key</string>
+    <string name="pen_style_summary_off">The inner of the shape will not be filled</string>
+    <string name="pen_style_summary_on">The inner of the shape will be filled</string>
+    <string name="pen_style_title">Style</string>
+    <string name="pen_summary">Brush settings</string>
+    <string name="pen_title">Brush</string>
+    <string name="pen_width_key">pen_width_key</string>
+    <string name="pen_width_summary">Set the width of the brush</string>
+    <string name="pen_width_title">Width</string>
+    <string name="setting_about_build_key">setting_about_build_key</string>
+    <string name="setting_about_build_title">Last built time</string>
+    <string name="setting_about_key">setting_about_key</string>
+    <string name="setting_about_summary">About</string>
+    <string name="setting_about_title">About</string>
+    <string name="setting_about_tutorial_key">setting_about_tutorial_key</string>
+    <string name="setting_about_tutorial_title">Shortcuts</string>
+    <string name="setting_about_version_key">setting_about_version_key</string>
+    <string name="setting_about_version_title">Version Number</string>
+    <string name="setting_screen_key">setting_screen_key</string>
+    <string name="setting_screen_summary">Screen setting</string>
+    <string name="setting_screen_title">Screen</string>
+    <string name="tip_choose_color">Pick a color:</string>
+    <string name="tip_current_is_drawing">Is drawing： </string>
+    <string name="tip_press_again_to_save_bitmap_before_leaving">Leaving... Press again to save the bitmap.</string>
+    <string name="tip_sava_failed">Failed to save</string>
+    <string name="tip_save_to">Saved to:</string>
+    <string name="tip_sdcard_is_not_available">Failed to save, did not find sdcard.</string>
+    <string name="tip_sdcard_is_read_only">Failed to save, the sdcard is not writable.</string>
+    <string name="tip_touch_to_draw">Touch to draw</string>
+
+</resources>

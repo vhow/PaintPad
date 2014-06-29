@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/C:/syl/ws/paint_pad/app/res/values-zh/arrays.xml -->
+    <eat-comment />
+
+    <string-array name="drawings">
+        <item>随笔</item>
+        <item>直线</item>
+        <item>矩形</item>
+        <item>椭圆</item>
+        <item>圆形</item>
+        <item>圆点</item>
+        <item>橡皮</item>
+    </string-array>
+    <!-- From: file:/C:/syl/ws/paint_pad/app/res/values-zh/strings.xml -->
+    <eat-comment />
+
+    <string name="about_contact_author"><b>联系作者:</b></string>
+    <string name="about_msg_by_author">如果大家对这款软件有什么建议, 请发送邮件至vhow@163.com,
+		作者一定会在“手指涂鸦“的后续开发中充分考虑您的建议。</string>
+    <string name="about_shortcut__down"><b>向下键</b> 		- 清除已绘制的图形，得到一张新的画布。</string>
+    <string name="about_shortcut_center"><b>中间键</b> 		- 保存图画</string>
+    <string name="about_shortcut_info"><b>快捷键功能：</b></string>
+    <string name="about_shortcut_up"><b>向上键</b> 		- 打开图形对话框，选择所要绘制的图形。</string>
+    <string name="alert_dialog_cancel">取消</string>
+    <string name="alert_dialog_no">不用</string>
+    <string name="alert_dialog_ok">是的</string>
+    <string name="app_name">画图板</string>
+    <string name="canvas_bgcolor_key">canvas_bgcolor_key</string>
+    <string name="canvas_bgcolor_summary">设置画布背景颜色</string>
+    <string name="canvas_bgcolor_title">背景</string>
+    <string name="canvas_key">canvas_key</string>
+    <string name="canvas_summary">设置画布</string>
+    <string name="canvas_title">画布</string>
+    <string name="check_full_screen_key">check_full_screen</string>
+    <string name="checkbox_default_false">false</string>
+    <string name="checkbox_default_true">true</string>
+    <string name="dialog_input_text">请输入文字</string>
+    <string name="dialog_title_save_it_or_not">保存图片吗？</string>
+    <string name="dialog_title_what_to_draw">选择所要绘制的图形</string>
+    <string name="folder_name_in_sdcard">PaintPad</string>
+    <string name="full_screen_off">下次启动时不全屏显示</string>
+    <string name="full_screen_on">下次启动时全屏显示</string>
+    <string name="full_screen_title">全屏</string>
+    <string name="menu_title_about">关于</string>
+    <string name="menu_title_clear_screen">清屏</string>
+    <string name="menu_title_quit">退出</string>
+    <string name="menu_title_save">保存</string>
+    <string name="menu_title_setting">设置</string>
+    <string name="menu_title_what_to_draw">图形</string>
+    <string name="pen_color_key">pen_color_key</string>
+    <string name="pen_color_summary">设置画笔颜色</string>
+    <string name="pen_color_title">颜色</string>
+    <string name="pen_key">pen_key</string>
+    <string name="pen_style_key">pen_style_key</string>
+    <string name="pen_style_summary_off">绘制图形时不填充内部</string>
+    <string name="pen_style_summary_on">绘制图形时填充内部</string>
+    <string name="pen_style_title">风格</string>
+    <string name="pen_summary">设置画笔</string>
+    <string name="pen_title">画笔</string>
+    <string name="pen_width_key">pen_width_key</string>
+    <string name="pen_width_summary">设置画笔宽度</string>
+    <string name="pen_width_title">宽度</string>
+    <string name="setting_about_build_key">setting_about_build_key</string>
+    <string name="setting_about_build_title">上次编译时间</string>
+    <string name="setting_about_key">setting_about_key</string>
+    <string name="setting_about_summary">About</string>
+    <string name="setting_about_title">关于</string>
+    <string name="setting_about_tutorial_key">setting_about_tutorial_key</string>
+    <string name="setting_about_tutorial_title">快捷键</string>
+    <string name="setting_about_version_key">setting_about_version_key</string>
+    <string name="setting_about_version_title">版本号</string>
+    <string name="setting_screen_key">setting_screen_key</string>
+    <string name="setting_screen_summary">屏幕设置</string>
+    <string name="setting_screen_title">屏幕</string>
+    <string name="tip_choose_color">点选颜色</string>
+    <string name="tip_current_is_drawing">当前正在绘制： </string>
+    <string name="tip_press_again_to_save_bitmap_before_leaving">正在退出... 再按一次，以保存图片</string>
+    <string name="tip_sava_failed">保存失败</string>
+    <string name="tip_save_to">存储至: </string>
+    <string name="tip_sdcard_is_not_available">无法保存， 未检测到sd卡</string>
+    <string name="tip_sdcard_is_read_only">无法保存， sd卡不可写入</string>
+    <string name="tip_touch_to_draw">触动屏幕，开始绘图</string>
+
+</resources>
