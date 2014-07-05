@@ -1,7 +1,0 @@
-*.class
-*.apk
-*.properties
-*.cfg
-app/gen/
-app/bin/
-app/.settings/
