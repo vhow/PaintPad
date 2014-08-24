@@ -1,0 +1,6 @@
+com.gmail.dailyefforts.paintpad.About
+com.gmail.dailyefforts.paintpad.About: About()
+com.gmail.dailyefforts.paintpad.PaintPadActivity
+com.gmail.dailyefforts.paintpad.PaintPadActivity: PaintPadActivity()
+com.gmail.dailyefforts.paintpad.setting.SettingsActivity
+com.gmail.dailyefforts.paintpad.setting.SettingsActivity: SettingsActivity()

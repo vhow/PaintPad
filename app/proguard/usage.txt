@@ -1,0 +1,41 @@
+android.annotation.SuppressLint
+android.annotation.TargetApi
+com.gmail.dailyefforts.paintpad.BuildConfig
+com.gmail.dailyefforts.paintpad.PaintPad:
+    private int bgColor
+    186:188:public void changeBgColor(int)
+com.gmail.dailyefforts.paintpad.PaintPadActivity:
+    private static final java.lang.String TAG
+    private static final boolean DEBUG
+    private android.graphics.Paint mPaint
+    private static final int DIALOG_WHAT_TO_DRAW
+    private static final int DIALOG_SAVE_IT_OR_NOT
+    public static final int REQUEST_SETTING
+    139:163:private void handleBackKeyDown()
+com.gmail.dailyefforts.paintpad.PaintPadActivity$MyHandler:
+    public static final int MSG_RESET
+    public static final int MSG_EXIT
+com.gmail.dailyefforts.paintpad.R
+com.gmail.dailyefforts.paintpad.R$array
+com.gmail.dailyefforts.paintpad.R$attr
+com.gmail.dailyefforts.paintpad.R$color
+com.gmail.dailyefforts.paintpad.R$drawable
+com.gmail.dailyefforts.paintpad.R$id
+com.gmail.dailyefforts.paintpad.R$layout
+com.gmail.dailyefforts.paintpad.R$menu
+com.gmail.dailyefforts.paintpad.R$string
+com.gmail.dailyefforts.paintpad.R$xml
+com.gmail.dailyefforts.paintpad.drawings.DrawingId
+com.gmail.dailyefforts.paintpad.drawings.Eraser:
+    private static final float TOUCH_TOLERANCE
+com.gmail.dailyefforts.paintpad.drawings.PathLine:
+    private static final float TOUCH_TOLERANCE
+com.gmail.dailyefforts.paintpad.helper.ColorPickerDialog$ColorPickerView:
+    private static final int CENTER_X
+    private static final int CENTER_Y
+    private static final int CENTER_RADIUS
+    private static final float PI
+com.gmail.dailyefforts.paintpad.setting.SeekBarDialog:
+    private static final int MAX_WIDTH
+    66:67:public void setSeekBarMax(int)
+    70:70:public int getSeekBarMax()

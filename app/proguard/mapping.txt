@@ -1,0 +1,149 @@
+com.gmail.dailyefforts.paintpad.About -> com.gmail.dailyefforts.paintpad.About:
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+com.gmail.dailyefforts.paintpad.PaintPad -> com.gmail.dailyefforts.paintpad.a:
+    float tempX -> a
+    float tempY -> b
+    android.graphics.Bitmap mBitmap -> c
+    android.graphics.Canvas mCanvas -> d
+    boolean isMoving -> e
+    com.gmail.dailyefforts.paintpad.drawings.Drawing mDrawing -> f
+    android.content.Context mContext -> g
+    void setDrawing(com.gmail.dailyefforts.paintpad.drawings.Drawing) -> a
+    void onDraw(android.graphics.Canvas) -> onDraw
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    void saveBitmap() -> a
+    void clearCanvas() -> b
+com.gmail.dailyefforts.paintpad.PaintPadActivity -> com.gmail.dailyefforts.paintpad.PaintPadActivity:
+    com.gmail.dailyefforts.paintpad.PaintPad mPaintPad -> a
+    android.content.Context mContext -> b
+    com.gmail.dailyefforts.paintpad.drawings.Drawing mDrawing -> c
+    com.gmail.dailyefforts.paintpad.drawings.DrawingFactory mDrawingFactory -> d
+    boolean isFullScreen -> e
+    android.content.SharedPreferences prefs -> f
+    void onCreate(android.os.Bundle) -> onCreate
+    void onStart() -> onStart
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    void onDestroy() -> onDestroy
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
+    void access$0(com.gmail.dailyefforts.paintpad.PaintPadActivity,int) -> a
+    void access$1(com.gmail.dailyefforts.paintpad.PaintPadActivity,int) -> b
+    com.gmail.dailyefforts.paintpad.PaintPad access$2(com.gmail.dailyefforts.paintpad.PaintPadActivity) -> a
+com.gmail.dailyefforts.paintpad.PaintPadActivity$1 -> com.gmail.dailyefforts.paintpad.b:
+    com.gmail.dailyefforts.paintpad.PaintPadActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.gmail.dailyefforts.paintpad.PaintPadActivity$2 -> com.gmail.dailyefforts.paintpad.c:
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.gmail.dailyefforts.paintpad.PaintPadActivity$3 -> com.gmail.dailyefforts.paintpad.d:
+    com.gmail.dailyefforts.paintpad.PaintPadActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.gmail.dailyefforts.paintpad.PaintPadActivity$4 -> com.gmail.dailyefforts.paintpad.e:
+    com.gmail.dailyefforts.paintpad.PaintPadActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.gmail.dailyefforts.paintpad.PaintPadActivity$MyHandler -> com.gmail.dailyefforts.paintpad.f:
+    com.gmail.dailyefforts.paintpad.PaintPadActivity this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.gmail.dailyefforts.paintpad.drawings.Circle -> com.gmail.dailyefforts.paintpad.a.a:
+    void draw(android.graphics.Canvas) -> a
+com.gmail.dailyefforts.paintpad.drawings.Drawing -> com.gmail.dailyefforts.paintpad.a.b:
+    float startX -> a
+    float startY -> b
+    float stopX -> c
+    float stopY -> d
+    void reset() -> a
+    void draw(android.graphics.Canvas) -> a
+    void fingerDown(float,float,android.graphics.Canvas) -> a
+    void fingerMove(float,float,android.graphics.Canvas) -> b
+    void fingerUp(float,float,android.graphics.Canvas) -> c
+com.gmail.dailyefforts.paintpad.drawings.DrawingFactory -> com.gmail.dailyefforts.paintpad.a.c:
+    com.gmail.dailyefforts.paintpad.drawings.Drawing mDrawing -> a
+    com.gmail.dailyefforts.paintpad.drawings.Drawing createDrawing(int) -> a
+com.gmail.dailyefforts.paintpad.drawings.Eraser -> com.gmail.dailyefforts.paintpad.a.d:
+    android.graphics.Path mPath -> e
+    float mX -> f
+    float mY -> g
+    android.graphics.Paint eraser -> h
+    void draw(android.graphics.Canvas) -> a
+    void fingerDown(float,float,android.graphics.Canvas) -> a
+    void fingerMove(float,float,android.graphics.Canvas) -> b
+    void fingerUp(float,float,android.graphics.Canvas) -> c
+com.gmail.dailyefforts.paintpad.drawings.Oval -> com.gmail.dailyefforts.paintpad.a.e:
+    android.graphics.RectF mRectF -> e
+    void draw(android.graphics.Canvas) -> a
+com.gmail.dailyefforts.paintpad.drawings.PathLine -> com.gmail.dailyefforts.paintpad.a.f:
+    android.graphics.Path mPath -> e
+    float mX -> f
+    float mY -> g
+    void draw(android.graphics.Canvas) -> a
+    void fingerDown(float,float,android.graphics.Canvas) -> a
+    void fingerMove(float,float,android.graphics.Canvas) -> b
+    void fingerUp(float,float,android.graphics.Canvas) -> c
+com.gmail.dailyefforts.paintpad.drawings.Points -> com.gmail.dailyefforts.paintpad.a.g:
+    android.graphics.Paint mPaint -> e
+    void draw(android.graphics.Canvas) -> a
+    void fingerDown(float,float,android.graphics.Canvas) -> a
+    void fingerMove(float,float,android.graphics.Canvas) -> b
+com.gmail.dailyefforts.paintpad.drawings.Rect -> com.gmail.dailyefforts.paintpad.a.h:
+    void draw(android.graphics.Canvas) -> a
+com.gmail.dailyefforts.paintpad.drawings.StraightLine -> com.gmail.dailyefforts.paintpad.a.i:
+    void draw(android.graphics.Canvas) -> a
+com.gmail.dailyefforts.paintpad.helper.ColorPickerDialog -> com.gmail.dailyefforts.paintpad.b.a:
+    java.lang.String mTitle -> a
+    com.gmail.dailyefforts.paintpad.helper.ColorPickerDialog$OnColorChangedListener mListener -> b
+    int mInitialColor -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    com.gmail.dailyefforts.paintpad.helper.ColorPickerDialog$OnColorChangedListener access$0(com.gmail.dailyefforts.paintpad.helper.ColorPickerDialog) -> a
+com.gmail.dailyefforts.paintpad.helper.ColorPickerDialog$1 -> com.gmail.dailyefforts.paintpad.b.b:
+    com.gmail.dailyefforts.paintpad.helper.ColorPickerDialog this$0 -> a
+    void colorChanged(int) -> a
+com.gmail.dailyefforts.paintpad.helper.ColorPickerDialog$ColorPickerView -> com.gmail.dailyefforts.paintpad.b.c:
+    android.graphics.Paint mPaint -> a
+    android.graphics.Paint mCenterPaint -> b
+    int[] mColors -> c
+    com.gmail.dailyefforts.paintpad.helper.ColorPickerDialog$OnColorChangedListener mListener -> d
+    boolean mTrackingCenter -> e
+    boolean mHighlightCenter -> f
+    void onDraw(android.graphics.Canvas) -> onDraw
+    void onMeasure(int,int) -> onMeasure
+    int ave(int,int,float) -> a
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.gmail.dailyefforts.paintpad.helper.ColorPickerDialog$OnColorChangedListener -> com.gmail.dailyefforts.paintpad.b.d:
+    void colorChanged(int) -> a
+com.gmail.dailyefforts.paintpad.helper.ScreenInfo -> com.gmail.dailyefforts.paintpad.b.e:
+    android.app.Activity mActivity -> a
+    int mWidthPixels -> b
+    int mHeightPixels -> c
+    int getWidthPixels() -> a
+    int getHeightPixels() -> b
+com.gmail.dailyefforts.paintpad.setting.SeekBarDialog -> com.gmail.dailyefforts.paintpad.setting.a:
+    android.content.Context mContext -> a
+    android.widget.SeekBar mSeekBar -> b
+    android.widget.SeekBar$OnSeekBarChangeListener seekBarListener -> c
+    void onCreate(android.os.Bundle) -> onCreate
+com.gmail.dailyefforts.paintpad.setting.SeekBarDialog$1 -> com.gmail.dailyefforts.paintpad.setting.b:
+    com.gmail.dailyefforts.paintpad.setting.SeekBarDialog this$0 -> a
+    void onStopTrackingTouch(android.widget.SeekBar) -> onStopTrackingTouch
+    void onStartTrackingTouch(android.widget.SeekBar) -> onStartTrackingTouch
+    void onProgressChanged(android.widget.SeekBar,int,boolean) -> onProgressChanged
+com.gmail.dailyefforts.paintpad.setting.SettingsActivity -> com.gmail.dailyefforts.paintpad.setting.SettingsActivity:
+    android.preference.Preference pen_width -> a
+    android.preference.Preference pen_color -> b
+    java.lang.String pen_width_key -> c
+    java.lang.String pen_color_key -> d
+    android.preference.Preference versionName -> e
+    android.preference.Preference lastBuildTime -> f
+    void onCreate(android.os.Bundle) -> onCreate
+    java.lang.String getLastBuiltTime() -> a
+    java.lang.String getVersionName() -> b
+    boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+    void colorChanged(int) -> a
+com.gmail.dailyefforts.paintpad.setting.SettingsActivity$1 -> com.gmail.dailyefforts.paintpad.setting.c:
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.gmail.dailyefforts.paintpad.tools.Brush -> com.gmail.dailyefforts.paintpad.c.a:
+    com.gmail.dailyefforts.paintpad.tools.Brush brush -> a
+    com.gmail.dailyefforts.paintpad.tools.Brush getPen() -> a
+    void reset() -> reset

@@ -57,8 +57,8 @@
             android:title="@string/setting_about_tutorial_title" >
             <intent
                 android:action="android.intent.action.MAIN"
-                android:targetClass="org.vhow.paintpad.About"
-                android:targetPackage="org.vhow.paintpad" >
+                android:targetClass="com.gmail.dailyefforts.paintpad.About"
+                android:targetPackage="com.gmail.dailyefforts.paintpad" >
             </intent>
         </PreferenceScreen>
     </PreferenceCategory>
